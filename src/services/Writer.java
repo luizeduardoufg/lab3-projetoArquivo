@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Writer {
 	
-	public static void write(String path, String arg, String arg2, String arg3 , String arg4) {
+	public static boolean write(String path, String arg, String arg2, String arg3 , String arg4) {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))){
 			bw.write(arg);
 			bw.newLine();
@@ -16,9 +16,12 @@ public class Writer {
 			bw.newLine();
 			bw.write(arg4);
 			bw.newLine();
+			
+			return true;
 		}
 		catch(IOException e) {
 			System.out.println("Error: " + e.getMessage());
+			return false;
 		}
 	}
 }
